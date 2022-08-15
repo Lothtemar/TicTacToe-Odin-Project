@@ -1,0 +1,200 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+}
+:root{
+    --cell-size: 200px;
+    --mark-size: calc(var(--cell-size) * 0.9);
+    --brown-clr: rgb(173, 165, 136);
+    --dark-brown-clr: rgb(126, 120, 97); 
+    --green-clr: rgb(114, 131, 115);
+}
+body{
+    display: grid;
+    grid-template-rows: 10vh max(80vh, 600px) max(10vh, 2rem);
+}
+header{
+    background-color: var(--brown-clr);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nwgm-btn{
+    border-radius: 50%;
+    height: calc(var(--cell-size) * .35);
+    width: calc(var(--cell-size) * .35);
+    border: 2px solid var(--dark-brown-clr);
+
+}
+.hdr-container{
+    width: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+main{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    width: 600px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+    margin: 0 auto;
+}
+.container-square{
+    height: var(--cell-size);
+    width: var(--cell-size);
+    border: 1px solid black;
+    display: flex;;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--mark-size);
+    position: relative;
+    cursor: pointer;
+}
+.container-square:first-child, 
+.container-square:nth-child(2), 
+.container-square:nth-child(3){
+    border-top: none;
+}
+.container-square:nth-child(3n + 1){
+    border-left: none;
+}
+.container-square:nth-child(3n + 3){
+    border-right: none;
+}
+.container-square:last-child, 
+.container-square:nth-child(8), 
+.container-square:nth-child(7){
+    border-bottom: none;
+}
+
+.container-square.x::before, 
+.container-square.x::after
+{
+    background-color: black; 
+}
+
+.container.x .container-square:not(.x):not(.o):hover::before,
+.container.x .container-square:not(.x):not(.o):hover::after,
+.container.o .container-square:not(.x):not(.o):hover::before,
+.container.o .container-square:not(.x):not(.o):hover::after
+{
+    background-color: lightgray;
+}
+
+.container-square.x::before, 
+.container-square.x::after,
+.container.x .container-square:not(.x):not(.o):hover::before,
+.container.x .container-square:not(.x):not(.o):hover::after,
+.container.o .container-square:not(.x):not(.o):hover::before,
+.container.o .container-square:not(.x):not(.o):hover::after
+{
+    content: "";
+    width: calc(var(--mark-size) * .15);
+    height: var(--mark-size);
+    position: absolute;
+}
+.container-square.x::before,
+.container.x .container-square:not(.x):not(.o):hover::before
+{
+    transform: rotate(45deg);
+}
+.container-square.x::after,
+.container.x .container-square:not(.x):not(.o):hover::after
+{
+    transform: rotate(-45deg);
+}
+
+.container-square.o::before
+{
+    background-color: black;
+}
+
+.container.o .container-square:not(.x):not(.o):hover::before
+{
+    background-color: lightgray;
+}
+
+.container-square.o::before, 
+.container-square.o::after,
+.container.o .container-square:not(.x):not(.o):hover::before,
+.container.o .container-square:not(.x):not(.o):hover::after
+{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+.container-square.o::before,
+.container.o .container-square:not(.x):not(.o):hover::before
+{
+    width: calc(var(--mark-size) * .9);
+    height: calc(var(--mark-size) * .9);
+}
+.container-square.o::after,
+.container.o .container-square:not(.x):not(.o):hover::after
+{
+    background-color: white;
+    width: calc(var(--mark-size) * .60);
+    height: calc(var(--mark-size) * .60);
+}
+.container-square.x, 
+.container-square.o{
+    cursor: not-allowed;
+}
+
+footer{
+    background-color: var(--green-clr);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.hidden{
+    display: none !important;
+}
+.layer{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.425);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popup-choose{
+    position: absolute;
+    z-index: 6;
+    background-color: white;
+    color: black;
+    height: 200px;
+    width: 200px;
+    display: grid;
+    grid-template:
+    "title title" 100px
+    "x-cont o-cont" auto
+    / 50% 50%;
+}
+.card{
+    font-size: 5rem;
+    border: 1px solid black;
+    text-align: center;
+}
+.title{
+    grid-area: title;
+    font-size: 2rem;
+    text-align: center;
+    margin: auto 0;
+}
+.o-card{
+    grid-area: o-cont;
+}
+.x-card{
+    grid-area: x-cont;
+}
