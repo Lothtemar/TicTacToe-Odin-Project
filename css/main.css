@@ -217,6 +217,9 @@ footer{
     font-size: 5rem;
     color: white;
 }
+.winner > div {
+    text-align: center;
+}
 .winner button{
     margin-left: 2em;
     padding: 1rem;
@@ -230,4 +233,5 @@ footer{
 }
 .winner.show{
     display: flex;
+    flex-direction: row;
 }
