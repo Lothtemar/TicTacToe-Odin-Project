@@ -179,30 +179,64 @@ footer{
     z-index: 6;
     background-color: white;
     color: black;
-    height: 200px;
-    width: 200px;
+    width: 400px;
     display: grid;
     grid-template:
-    "title title" 100px
-    "x-cont o-cont" auto
-    / 50% 50%;
+    "title title title title title" 100px
+    ". . . . ." 0.5rem
+    ". pvp-cont . pvai-cont ." auto
+    ". . . . ." 0.5rem
+    ". x-cont . o-cont ." auto
+    ". . . . . " 0.5rem
+    ". gobtn gobtn gobtn ." auto
+    ". . . . . " 2rem
+    / 5% 44% 2% 44% 5%;
+    border-radius: 15px;
+    box-shadow: 0px 2px 3px rgba(255, 255, 255, 0.842);
+    
 }
 .card{
-    font-size: 5rem;
-    border: 1px solid black;
+    font-size: 4rem;
+    border: 1px solid #ccc;
+    box-shadow: 0px 2px 4px rgba(0,0,0, 0.50);
     text-align: center;
+    margin: auto 0;
+    padding: 1rem 0;
 }
 .title{
     grid-area: title;
     font-size: 2rem;
     text-align: center;
     margin: auto 0;
+    text-shadow: 0px 2px 4px #ccc;
+}
+.pvp{
+    grid-area: pvp-cont;
+}
+.pvai{
+    grid-area: pvai-cont;
 }
 .o-card{
     grid-area: o-cont;
 }
 .x-card{
     grid-area: x-cont;
+}
+.gobtn{
+    grid-area: gobtn;
+    text-decoration: none;
+    color: black;
+
+}
+.card:hover,
+.card:focus{
+    background-color: var(--green-clr);
+}
+.card:active{
+    background-color: var(--green-clr);
+}
+.selected{
+    background-color: var(--green-clr);
 }
 .winner{
     position: fixed;

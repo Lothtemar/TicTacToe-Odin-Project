@@ -16,7 +16,7 @@
         </div>
     </header>
     <main>
-        <div class="container x"> <!-- x or o class for each turn-->
+        <div class="container"> <!-- x or o class for each turn-->
             <div id="1" class="container-square" data-cell></div> <!-- x or o class for filling-->
             <div id="2" class="container-square" data-cell></div>
             <div id="3" class="container-square" data-cell></div>
@@ -33,15 +33,17 @@
     </footer>
     <div class="layer hidden">
         <div class="popup-choose">
-            <div class="title">Choose Wisely!!!</div>
-            <div class="card x-card">x</div>
-            <div class="card 0-card">o</div>
+            <div class="title">Select your Playstyle!</div>
+            <div id="x1" class="card pvp">PvP</div>
+            <div id="x2" class="card pvai">PvAI</div>
+            <div id="x3" class="card x-card">X</div>
+            <div id="x4" class="card o-card">O</div>
+            <div id="x5" class="card gobtn">Go!</a></div>
         </div>
-    </div>
-    <div class="winner"><!-- Winner msg--> 
-        <div data-winner></div>
-        <button id="restart-btn">Restart</button>
-    </div>
+        <div class="winner"><!-- Winner msg--> 
+            <div data-winner></div>
+            <button id="restart-btn">Restart</button>
+        </div>
     
 </body>
 </html>
