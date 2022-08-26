@@ -62,17 +62,21 @@ main{
     position: relative;
     cursor: pointer;
 }
+
 .container-square:first-child, 
 .container-square:nth-child(2), 
 .container-square:nth-child(3){
     border-top: none;
 }
+
 .container-square:nth-child(3n + 1){
     border-left: none;
 }
+
 .container-square:nth-child(3n + 3){
     border-right: none;
 }
+
 .container-square:last-child, 
 .container-square:nth-child(8), 
 .container-square:nth-child(7){
@@ -106,22 +110,19 @@ main{
     height: var(--mark-size);
     position: absolute;
 }
+
 .container-square.x::before,
 .container.x .container-square:not(.x):not(.o):hover::before
 {
     transform: rotate(45deg);
 }
+
 .container-square.x::after,
 .container.x .container-square:not(.x):not(.o):hover::after
 {
     transform: rotate(-45deg);
 }
-/*
-.container-square.o::before
-{
-    background-color: black;
-}
-*/
+
 .container.o .container-square:not(.x):not(.o):hover::before
 {
     background-color: lightgray;
@@ -136,12 +137,14 @@ main{
     position: absolute;
     border-radius: 50%;
 }
+
 .container-square.o::before,
 .container.o .container-square:not(.x):not(.o):hover::before
 {
     width: calc(var(--mark-size) * .9);
     height: calc(var(--mark-size) * .9);
 }
+
 .container-square.o::after,
 .container.o .container-square:not(.x):not(.o):hover::after
 {
@@ -149,9 +152,11 @@ main{
     width: calc(var(--mark-size) * .60);
     height: calc(var(--mark-size) * .60);
 }
+
 .container-square.x, 
 .container-square.o{
     cursor: not-allowed;
+    pointer-events: none;
 }
 
 footer{
